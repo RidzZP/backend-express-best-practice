@@ -1,0 +1,538 @@
+paths:
+    /api/export/excel:
+        post:
+            tags:
+                - Export
+            summary: Export Data to Excel
+            description: Export data to Excel format with customizable options
+            security:
+                - BearerAuth: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            required:
+                                - data_source
+                                - format
+                            properties:
+                                data_source:
+                                    type: string
+                                    enum: [users, orders, products, reports, analytics]
+                                    description: Source of data to export
+                                    example: "users"
+                                format:
+                                    type: string
+                                    enum: [xlsx, csv]
+                                    description: Export format
+                                    example: "xlsx"
+                                filters:
+                                    type: object
+                                    description: Filters to apply to the data
+                                    properties:
+                                        date_range:
+                                            type: object
+                                            properties:
+                                                start_date:
+                                                    type: string
+                                                    format: date
+                                                    example: "2025-01-01"
+                                                end_date:
+                                                    type: string
+                                                    format: date
+                                                    example: "2025-01-31"
+                                        status:
+                                            type: array
+                                            items:
+                                                type: string
+                                            example: ["active", "pending"]
+                                        categories:
+                                            type: array
+                                            items:
+                                                type: string
+                                            example: ["Electronics", "Clothing"]
+                                columns:
+                                    type: array
+                                    items:
+                                        type: string
+                                    description: Specific columns to include in export
+                                    example: ["id", "name", "email", "created_at"]
+                                options:
+                                    type: object
+                                    description: Export options
+                                    properties:
+                                        include_headers:
+                                            type: boolean
+                                            default: true
+                                            description: Include column headers
+                                        sheet_name:
+                                            type: string
+                                            maxLength: 50
+                                            default: "Data Export"
+                                            description: Name of the Excel sheet
+                                            example: "Users Export"
+                                        password:
+                                            type: string
+                                            description: Password protection for the file
+                                            example: "export123"
+                                        compress:
+                                            type: boolean
+                                            default: false
+                                            description: Compress the output file
+                                notification:
+                                    type: object
+                                    description: Notification settings
+                                    properties:
+                                        email:
+                                            type: boolean
+                                            default: false
+                                            description: Send email notification when export is ready
+                                        webhook_url:
+                                            type: string
+                                            format: uri
+                                            description: Webhook URL to notify when export is ready
+                                            example: "https://api.example.com/webhooks/export-complete"
+            responses:
+                "202":
+                    description: Export request accepted and processing
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "accepted"
+                                    message:
+                                        type: string
+                                        example: "Export request accepted and processing"
+                                    data:
+                                        type: object
+                                        properties:
+                                            export_id:
+                                                type: string
+                                                example: "EXP_20250103_001"
+                                            status:
+                                                type: string
+                                                enum:
+                                                    [
+                                                        pending,
+                                                        processing,
+                                                        completed,
+                                                        failed,
+                                                    ]
+                                                example: "pending"
+                                            estimated_completion:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:35:00Z"
+                                            progress_url:
+                                                type: string
+                                                example: "/api/export/EXP_20250103_001/status"
+                                            total_records:
+                                                type: integer
+                                                example: 1250
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "400":
+                    $ref: "#/components/responses/ValidationError"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "429":
+                    description: Export rate limit exceeded
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                            example:
+                                status: "error"
+                                message: "Export rate limit exceeded. Please try again later."
+                                error_code: "EXPORT_RATE_LIMIT"
+                                timestamp: "2025-01-03T10:30:00Z"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/export/{exportId}/status:
+        get:
+            tags:
+                - Export
+            summary: Get Export Status
+            description: Check the status of an export operation
+            security:
+                - BearerAuth: []
+            parameters:
+                - name: exportId
+                  in: path
+                  required: true
+                  description: Unique identifier of the export
+                  schema:
+                      type: string
+                      example: "EXP_20250103_001"
+            responses:
+                "200":
+                    description: Export status retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Export status retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            export_id:
+                                                type: string
+                                                example: "EXP_20250103_001"
+                                            status:
+                                                type: string
+                                                enum:
+                                                    [
+                                                        pending,
+                                                        processing,
+                                                        completed,
+                                                        failed,
+                                                    ]
+                                                example: "completed"
+                                            progress_percentage:
+                                                type: integer
+                                                minimum: 0
+                                                maximum: 100
+                                                example: 100
+                                            processed_records:
+                                                type: integer
+                                                example: 1250
+                                            total_records:
+                                                type: integer
+                                                example: 1250
+                                            file_info:
+                                                type: object
+                                                nullable: true
+                                                properties:
+                                                    filename:
+                                                        type: string
+                                                        example: "users_export_20250103.xlsx"
+                                                    size:
+                                                        type: integer
+                                                        description: File size in bytes
+                                                        example: 2048576
+                                                    format:
+                                                        type: string
+                                                        example: "xlsx"
+                                                    created_at:
+                                                        type: string
+                                                        format: date-time
+                                                        example: "2025-01-03T10:35:00Z"
+                                                    expires_at:
+                                                        type: string
+                                                        format: date-time
+                                                        example: "2025-01-10T10:35:00Z"
+                                            download_url:
+                                                type: string
+                                                nullable: true
+                                                example: "/api/export/EXP_20250103_001/download"
+                                            started_at:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:30:00Z"
+                                            completed_at:
+                                                type: string
+                                                format: date-time
+                                                nullable: true
+                                                example: "2025-01-03T10:35:00Z"
+                                            error_message:
+                                                type: string
+                                                nullable: true
+                                                example: null
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:36:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "404":
+                    $ref: "#/components/responses/NotFoundError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/export/{exportId}/download:
+        get:
+            tags:
+                - Export
+            summary: Download Export File
+            description: Download the completed export file
+            security:
+                - BearerAuth: []
+            parameters:
+                - name: exportId
+                  in: path
+                  required: true
+                  description: Unique identifier of the export
+                  schema:
+                      type: string
+                      example: "EXP_20250103_001"
+            responses:
+                "200":
+                    description: File download successful
+                    content:
+                        application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+                            schema:
+                                type: string
+                                format: binary
+                        text/csv:
+                            schema:
+                                type: string
+                                format: binary
+                    headers:
+                        Content-Disposition:
+                            description: Attachment filename
+                            schema:
+                                type: string
+                                example: "attachment; filename=users_export_20250103.xlsx"
+                        Content-Length:
+                            description: File size in bytes
+                            schema:
+                                type: integer
+                                example: 2048576
+                        Content-Type:
+                            description: MIME type of the file
+                            schema:
+                                type: string
+                                example: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "404":
+                    description: Export file not found or expired
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                            example:
+                                status: "error"
+                                message: "Export file not found or has expired"
+                                error_code: "EXPORT_FILE_NOT_FOUND"
+                                timestamp: "2025-01-03T10:30:00Z"
+                "410":
+                    description: Export file has expired
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                            example:
+                                status: "error"
+                                message: "Export file has expired and is no longer available"
+                                error_code: "EXPORT_FILE_EXPIRED"
+                                timestamp: "2025-01-03T10:30:00Z"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/export/{exportId}/cancel:
+        post:
+            tags:
+                - Export
+            summary: Cancel Export Operation
+            description: Cancel a pending or processing export operation
+            security:
+                - BearerAuth: []
+            parameters:
+                - name: exportId
+                  in: path
+                  required: true
+                  description: Unique identifier of the export
+                  schema:
+                      type: string
+                      example: "EXP_20250103_001"
+            responses:
+                "200":
+                    description: Export cancelled successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Export cancelled successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            export_id:
+                                                type: string
+                                                example: "EXP_20250103_001"
+                                            status:
+                                                type: string
+                                                example: "cancelled"
+                                            cancelled_at:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:32:00Z"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:32:00Z"
+                "400":
+                    description: Export cannot be cancelled
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                            example:
+                                status: "error"
+                                message: "Export cannot be cancelled as it is already completed"
+                                error_code: "EXPORT_CANNOT_CANCEL"
+                                timestamp: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "404":
+                    $ref: "#/components/responses/NotFoundError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/export/history:
+        get:
+            tags:
+                - Export
+            summary: Get Export History
+            description: Retrieve user's export history with pagination
+            security:
+                - BearerAuth: []
+            parameters:
+                - $ref: "#/components/parameters/PageParam"
+                - $ref: "#/components/parameters/LimitParam"
+                - $ref: "#/components/parameters/SortParam"
+                - name: status
+                  in: query
+                  description: Filter by export status
+                  required: false
+                  schema:
+                      type: string
+                      enum: [pending, processing, completed, failed, cancelled]
+                - name: data_source
+                  in: query
+                  description: Filter by data source
+                  required: false
+                  schema:
+                      type: string
+                      enum: [users, orders, products, reports, analytics]
+                - name: start_date
+                  in: query
+                  description: Filter exports created from this date
+                  required: false
+                  schema:
+                      type: string
+                      format: date
+                      example: "2025-01-01"
+                - name: end_date
+                  in: query
+                  description: Filter exports created until this date
+                  required: false
+                  schema:
+                      type: string
+                      format: date
+                      example: "2025-01-31"
+            responses:
+                "200":
+                    description: Export history retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Export history retrieved successfully"
+                                    data:
+                                        type: array
+                                        items:
+                                            type: object
+                                            properties:
+                                                export_id:
+                                                    type: string
+                                                    example: "EXP_20250103_001"
+                                                data_source:
+                                                    type: string
+                                                    example: "users"
+                                                format:
+                                                    type: string
+                                                    example: "xlsx"
+                                                status:
+                                                    type: string
+                                                    enum:
+                                                        [
+                                                            pending,
+                                                            processing,
+                                                            completed,
+                                                            failed,
+                                                            cancelled,
+                                                        ]
+                                                    example: "completed"
+                                                total_records:
+                                                    type: integer
+                                                    example: 1250
+                                                file_size:
+                                                    type: integer
+                                                    nullable: true
+                                                    description: File size in bytes
+                                                    example: 2048576
+                                                created_at:
+                                                    type: string
+                                                    format: date-time
+                                                    example: "2025-01-03T10:30:00Z"
+                                                completed_at:
+                                                    type: string
+                                                    format: date-time
+                                                    nullable: true
+                                                    example: "2025-01-03T10:35:00Z"
+                                                expires_at:
+                                                    type: string
+                                                    format: date-time
+                                                    nullable: true
+                                                    example: "2025-01-10T10:35:00Z"
+                                                download_url:
+                                                    type: string
+                                                    nullable: true
+                                                    example: "/api/export/EXP_20250103_001/download"
+                                    pagination:
+                                        type: object
+                                        properties:
+                                            page:
+                                                type: integer
+                                                example: 1
+                                            limit:
+                                                type: integer
+                                                example: 10
+                                            total:
+                                                type: integer
+                                                example: 25
+                                            totalPages:
+                                                type: integer
+                                                example: 3
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "500":
+                    $ref: "#/components/responses/ServerError"

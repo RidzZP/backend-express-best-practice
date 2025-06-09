@@ -1,0 +1,581 @@
+{
+  error: Error: Transaction cannot be rolled back because it has been finished with state: rollback
+      at Transaction.rollback (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\sequelize\lib\transaction.js:59:13)
+      at res.send (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:98:31)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  level: 'error',
+  message: 'unhandledRejection: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  stack: 'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  rejection: true,
+  date: 'Tue Jun 03 2025 09:30:14 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 23980,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 72421376,
+      heapTotal: 29401088,
+      heapUsed: 24554448,
+      external: 2415135,
+      arrayBuffers: 41851
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 350159.296 },
+  trace: [
+    {
+      column: 13,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js',
+      function: 'Transaction.rollback',
+      line: 59,
+      method: 'rollback',
+      native: false
+    },
+    {
+      column: 31,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'res.send',
+      line: 98,
+      method: 'send',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  error: Error: Transaction cannot be rolled back because it has been finished with state: rollback
+      at Transaction.rollback (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\sequelize\lib\transaction.js:59:13)
+      at res.send (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:98:31)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  level: 'error',
+  message: 'unhandledRejection: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  stack: 'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  rejection: true,
+  date: 'Tue Jun 03 2025 09:31:02 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 19096,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 85409792,
+      heapTotal: 56926208,
+      heapUsed: 28401856,
+      external: 2417919,
+      arrayBuffers: 44635
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 350207.89 },
+  trace: [
+    {
+      column: 13,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js',
+      function: 'Transaction.rollback',
+      line: 59,
+      method: 'rollback',
+      native: false
+    },
+    {
+      column: 31,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'res.send',
+      line: 98,
+      method: 'send',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 09:31:02'
+}
+{
+  error: AppError: Failed to create product
+      at C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:115:23
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async executeInTransaction (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:140:16)
+      at async ProductService.create (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:94:16)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:242:24
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 500,
+    status: 'error',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Failed to create product\n' +
+    'Error: Failed to create product\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Failed to create product\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 09:43:25 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 8880,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 71102464,
+      heapTotal: 25993216,
+      heapUsed: 22794952,
+      external: 2406914,
+      arrayBuffers: 33630
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 350949.984 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: null,
+      line: 115,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'async executeInTransaction',
+      line: 140,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'async ProductService.create',
+      line: 94,
+      method: 'create',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 242,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 09:43:25'
+}
+{
+  error: AppError: Failed to create product
+      at C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:115:23
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async executeInTransaction (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:140:16)
+      at async ProductService.create (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:94:16)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:242:24
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 500,
+    status: 'error',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Failed to create product\n' +
+    'Error: Failed to create product\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Failed to create product\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 09:45:27 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 9980,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 70447104,
+      heapTotal: 24944640,
+      heapUsed: 22650336,
+      external: 2380736,
+      arrayBuffers: 33607
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 351072.703 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: null,
+      line: 115,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'async executeInTransaction',
+      line: 140,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'async ProductService.create',
+      line: 94,
+      method: 'create',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 242,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 09:45:27'
+}
+{
+  error: TypeError: this.sendResponse is not a function
+      at login (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\AuthController.js:91:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  level: 'error',
+  message: 'unhandledRejection: this.sendResponse is not a function\n' +
+    'TypeError: this.sendResponse is not a function\n' +
+    '    at login (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js:91:18)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  stack: 'TypeError: this.sendResponse is not a function\n' +
+    '    at login (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js:91:18)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  rejection: true,
+  date: 'Tue Jun 03 2025 10:37:41 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 21316,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 71229440,
+      heapTotal: 25206784,
+      heapUsed: 23418560,
+      external: 2431608,
+      arrayBuffers: 28117
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 354206.609 },
+  trace: [
+    {
+      column: 18,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js',
+      function: 'login',
+      line: 91,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 10:37:41'
+}
+{
+  error: AppError: Product not found
+      at ProductService.findByPk (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:23:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:43:32
+      at async executeInTransaction (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:140:16)
+      at async ProductService.update (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:39:16)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:266:24
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Product not found\n' +
+    'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:43:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.update (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:39:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:266:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:43:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.update (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:39:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:266:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 10:42:28 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 9576,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 75390976,
+      heapTotal: 33071104,
+      heapUsed: 26836744,
+      external: 2433917,
+      arrayBuffers: 30426
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 354493.125 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'ProductService.findByPk',
+      line: 23,
+      method: 'findByPk',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: null,
+      line: 43,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'async executeInTransaction',
+      line: 140,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'async ProductService.update',
+      line: 39,
+      method: 'update',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 266,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 10:42:28'
+}
+{
+  error: AppError: Product not found
+      at ProductService.findByPk (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:23:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:325:29
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Product not found\n' +
+    'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:325:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:325:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 13:41:11 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 11672,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 98160640,
+      heapTotal: 57917440,
+      heapUsed: 36643496,
+      external: 2424526,
+      arrayBuffers: 21035
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 365216.812 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'ProductService.findByPk',
+      line: 23,
+      method: 'findByPk',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 29,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 325,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 13:41:11'
+}

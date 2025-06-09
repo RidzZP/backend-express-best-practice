@@ -1,0 +1,296 @@
+{
+  message: 'Starting server initialization...',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:29'
+}
+{
+  message: 'Global error handlers configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:29'
+}
+{
+  message: 'Express app initialized successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  message: 'Swagger documentation routes loaded successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  message: 'All middlewares and routes configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  message: 'Starting server...',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  message: 'Attempting to connect to database...',
+  level: 'info',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  name: 'SequelizeConnectionRefusedError',
+  parent: Error: connect ECONNREFUSED ::1:3306
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '::1',
+    port: 3306,
+    fatal: true
+  },
+  original: Error: connect ECONNREFUSED ::1:3306
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    errno: -4078,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '::1',
+    port: 3306,
+    fatal: true
+  },
+  level: 'error',
+  message: 'Unable to connect to database: connect ECONNREFUSED ::1:3306',
+  stack: 'SequelizeConnectionRefusedError: connect ECONNREFUSED ::1:3306\n' +
+    '    at ConnectionManager.connect (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\dialects\\mysql\\connection-manager.js:92:17)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async ConnectionManager._connect (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\dialects\\abstract\\connection-manager.js:222:24)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\dialects\\abstract\\connection-manager.js:174:32\n' +
+    '    at async ConnectionManager.getConnection (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\dialects\\abstract\\connection-manager.js:197:7)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\sequelize.js:305:26\n' +
+    '    at async Sequelize.authenticate (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\sequelize\\lib\\sequelize.js:457:5)\n' +
+    '    at async connectDatabase (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\config\\database.js:36:9)\n' +
+    '    at async startServer (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\server.js:132:9)',
+  timestamp: '2025-06-09 09:05:30'
+}
+{
+  message: 'Starting server initialization...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:08'
+}
+{
+  message: 'Global error handlers configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:08'
+}
+{
+  message: 'Express app initialized successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Swagger documentation routes loaded successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'All middlewares and routes configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Starting server...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Attempting to connect to database...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Database tables already exist, skipping sync',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  message: 'Database connection successful',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:09'
+}
+{
+  errno: -4039,
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  address: '172.17.78.119',
+  port: 6379,
+  level: 'error',
+  message: 'Redis client error: connect ETIMEDOUT 172.17.78.119:6379',
+  stack: 'Error: connect ETIMEDOUT 172.17.78.119:6379\n' +
+    '    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1555:16)',
+  timestamp: '2025-06-09 09:06:30'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:34'
+}
+{
+  message: 'Starting server initialization...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:38'
+}
+{
+  message: 'Global error handlers configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:38'
+}
+{
+  message: 'Express app initialized successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Swagger documentation routes loaded successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'All middlewares and routes configured successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Starting server...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Attempting to connect to database...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Database connection established successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Database tables already exist, skipping sync',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Database connection successful',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Redis client connecting...',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Redis client ready and connected successfully!',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Redis service initialized successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Redis service initialized successfully',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Server is running on port 3000',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Environment: development',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Health check: http://localhost:3000/health',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'API endpoints: http://localhost:3000/api',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Excel export endpoints: http://localhost:3000/api/v1/export',
+  level: 'info',
+  timestamp: '2025-06-09 09:06:39'
+}
+{
+  message: 'Finding all Product records',
+  level: 'info',
+  timestamp: '2025-06-09 09:08:56'
+}
+{
+  message: 'Found 5 Product records',
+  level: 'info',
+  timestamp: '2025-06-09 09:08:56'
+}
+{
+  message: 'Counting Product records',
+  level: 'info',
+  timestamp: '2025-06-09 09:08:56'
+}
+{
+  message: 'Product count: 13',
+  level: 'info',
+  timestamp: '2025-06-09 09:08:56'
+}
+{
+  message: '::1 - - [09/Jun/2025:02:08:56 +0000] "GET /api/v1/dashboard2/products?page=1&limit=5 HTTP/1.1" 200 - "-" "PostmanRuntime/7.44.0"',
+  level: 'info',
+  timestamp: '2025-06-09 09:08:56'
+}
+{
+  message: 'Cache hit for key: products:/:no-params:{"page":"1","limit":"5"}',
+  level: 'info',
+  timestamp: '2025-06-09 09:09:34'
+}
+{
+  message: '::1 - - [09/Jun/2025:02:09:34 +0000] "GET /api/v1/dashboard2/products?page=1&limit=5 HTTP/1.1" 200 - "-" "PostmanRuntime/7.44.0"',
+  level: 'info',
+  timestamp: '2025-06-09 09:09:34'
+}
+{
+  message: 'Cache hit for key: products:/:no-params:{"page":"1","limit":"5"}',
+  level: 'info',
+  timestamp: '2025-06-09 09:09:36'
+}
+{
+  message: '::1 - - [09/Jun/2025:02:09:36 +0000] "GET /api/v1/dashboard2/products?page=1&limit=5 HTTP/1.1" 200 - "-" "PostmanRuntime/7.44.0"',
+  level: 'info',
+  timestamp: '2025-06-09 09:09:36'
+}
+{
+  message: 'Cache hit for key: products:/:no-params:{"page":"1","limit":"5"}',
+  level: 'info',
+  timestamp: '2025-06-09 09:11:22'
+}
+{
+  message: '::1 - - [09/Jun/2025:02:11:22 +0000] "GET /api/v1/dashboard2/products?page=1&limit=5 HTTP/1.1" 200 - "-" "PostmanRuntime/7.44.0"',
+  level: 'info',
+  timestamp: '2025-06-09 09:11:22'
+}
+{
+  message: 'Cache hit for key: products:/:no-params:{"page":"1","limit":"5"}',
+  level: 'info',
+  timestamp: '2025-06-09 09:11:29'
+}
+{
+  message: '::1 - - [09/Jun/2025:02:11:29 +0000] "GET /api/v1/dashboard2/products?page=1&limit=5 HTTP/1.1" 200 - "-" "PostmanRuntime/7.44.0"',
+  level: 'info',
+  timestamp: '2025-06-09 09:11:29'
+}

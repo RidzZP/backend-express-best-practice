@@ -1,0 +1,469 @@
+paths:
+    /:
+        get:
+            tags:
+                - System
+            summary: API Root Information
+            description: Get basic API information and available versions
+            responses:
+                "200":
+                    description: API information retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Express MVC API Server"
+                                    version:
+                                        type: string
+                                        example: "1.0.0"
+                                    availableVersions:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example: ["/api/v1", "/api/v2"]
+                                    applications:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example: ["/dashboard1", "/dashboard2"]
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+
+    /api/health:
+        get:
+            tags:
+                - System
+            summary: Health Check
+            description: Check API server health and status
+            responses:
+                "200":
+                    description: Service is healthy
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "healthy"
+                                    message:
+                                        type: string
+                                        example: "Service is running normally"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                                    uptime:
+                                        type: number
+                                        description: Server uptime in seconds
+                                        example: 86400
+                                    version:
+                                        type: string
+                                        example: "1.0.0"
+                                    environment:
+                                        type: string
+                                        example: "production"
+                                    services:
+                                        type: object
+                                        properties:
+                                            database:
+                                                type: object
+                                                properties:
+                                                    status:
+                                                        type: string
+                                                        enum:
+                                                            [
+                                                                connected,
+                                                                disconnected,
+                                                                error,
+                                                            ]
+                                                        example: "connected"
+                                                    response_time:
+                                                        type: number
+                                                        description: Database response time in milliseconds
+                                                        example: 25.5
+                                            redis:
+                                                type: object
+                                                properties:
+                                                    status:
+                                                        type: string
+                                                        enum:
+                                                            [
+                                                                connected,
+                                                                disconnected,
+                                                                error,
+                                                            ]
+                                                        example: "connected"
+                                                    response_time:
+                                                        type: number
+                                                        description: Redis response time in milliseconds
+                                                        example: 5.2
+                "503":
+                    description: Service is unhealthy
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "unhealthy"
+                                    message:
+                                        type: string
+                                        example: "Service is experiencing issues"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                                    errors:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example:
+                                            [
+                                                "Database connection failed",
+                                                "Redis unavailable",
+                                            ]
+
+    /api/metrics:
+        get:
+            tags:
+                - System
+            summary: System Metrics
+            description: Get system performance metrics and statistics
+            security:
+                - BearerAuth: []
+            responses:
+                "200":
+                    description: Metrics retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Metrics retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            system:
+                                                type: object
+                                                properties:
+                                                    uptime:
+                                                        type: number
+                                                        description: System uptime in seconds
+                                                        example: 86400
+                                                    memory_usage:
+                                                        type: object
+                                                        properties:
+                                                            used:
+                                                                type: number
+                                                                description: Used memory in bytes
+                                                                example: 134217728
+                                                            total:
+                                                                type: number
+                                                                description: Total memory in bytes
+                                                                example: 1073741824
+                                                            percentage:
+                                                                type: number
+                                                                format: float
+                                                                example: 12.5
+                                                    cpu_usage:
+                                                        type: object
+                                                        properties:
+                                                            current:
+                                                                type: number
+                                                                format: float
+                                                                description: Current CPU usage percentage
+                                                                example: 25.7
+                                                            average:
+                                                                type: number
+                                                                format: float
+                                                                description: Average CPU usage percentage
+                                                                example: 18.3
+                                            api:
+                                                type: object
+                                                properties:
+                                                    total_requests:
+                                                        type: integer
+                                                        description: Total API requests since startup
+                                                        example: 125430
+                                                    requests_per_minute:
+                                                        type: number
+                                                        format: float
+                                                        description: Current requests per minute
+                                                        example: 45.2
+                                                    average_response_time:
+                                                        type: number
+                                                        format: float
+                                                        description: Average response time in milliseconds
+                                                        example: 125.6
+                                                    error_rate:
+                                                        type: number
+                                                        format: float
+                                                        description: Error rate percentage
+                                                        example: 0.5
+                                            database:
+                                                type: object
+                                                properties:
+                                                    active_connections:
+                                                        type: integer
+                                                        example: 5
+                                                    total_queries:
+                                                        type: integer
+                                                        example: 95430
+                                                    average_query_time:
+                                                        type: number
+                                                        format: float
+                                                        description: Average query time in milliseconds
+                                                        example: 15.2
+                                                    slow_queries:
+                                                        type: integer
+                                                        description: Number of slow queries (>1s)
+                                                        example: 12
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/version:
+        get:
+            tags:
+                - System
+            summary: API Version Information
+            description: Get detailed API version information
+            responses:
+                "200":
+                    description: Version information retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Version information retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            api_version:
+                                                type: string
+                                                example: "1.0.0"
+                                            build_number:
+                                                type: string
+                                                example: "20250103.1"
+                                            build_date:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T08:00:00Z"
+                                            commit_hash:
+                                                type: string
+                                                example: "abc123def456"
+                                            environment:
+                                                type: string
+                                                example: "production"
+                                            node_version:
+                                                type: string
+                                                example: "18.19.0"
+                                            supported_versions:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        version:
+                                                            type: string
+                                                            example: "v1"
+                                                        status:
+                                                            type: string
+                                                            enum:
+                                                                [
+                                                                    active,
+                                                                    deprecated,
+                                                                    sunset,
+                                                                ]
+                                                            example: "active"
+                                                        sunset_date:
+                                                            type: string
+                                                            format: date
+                                                            nullable: true
+                                                            example: null
+                                                        documentation_url:
+                                                            type: string
+                                                            example: "/docs/v1"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+
+    /api/status:
+        get:
+            tags:
+                - System
+            summary: Detailed System Status
+            description: Get comprehensive system status including all components
+            security:
+                - BearerAuth: []
+            responses:
+                "200":
+                    description: System status retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "System status retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            overall_status:
+                                                type: string
+                                                enum: [healthy, degraded, unhealthy]
+                                                example: "healthy"
+                                            components:
+                                                type: object
+                                                properties:
+                                                    api_server:
+                                                        type: object
+                                                        properties:
+                                                            status:
+                                                                type: string
+                                                                enum:
+                                                                    [
+                                                                        operational,
+                                                                        degraded,
+                                                                        down,
+                                                                    ]
+                                                                example: "operational"
+                                                            response_time:
+                                                                type: number
+                                                                description: Average response time in milliseconds
+                                                                example: 125.6
+                                                            uptime_percentage:
+                                                                type: number
+                                                                format: float
+                                                                example: 99.9
+                                                    database:
+                                                        type: object
+                                                        properties:
+                                                            status:
+                                                                type: string
+                                                                enum:
+                                                                    [
+                                                                        operational,
+                                                                        degraded,
+                                                                        down,
+                                                                    ]
+                                                                example: "operational"
+                                                            connection_pool:
+                                                                type: object
+                                                                properties:
+                                                                    active:
+                                                                        type: integer
+                                                                        example: 5
+                                                                    idle:
+                                                                        type: integer
+                                                                        example: 3
+                                                                    total:
+                                                                        type: integer
+                                                                        example: 10
+                                                            last_check:
+                                                                type: string
+                                                                format: date-time
+                                                                example: "2025-01-03T10:29:00Z"
+                                                    file_storage:
+                                                        type: object
+                                                        properties:
+                                                            status:
+                                                                type: string
+                                                                enum:
+                                                                    [
+                                                                        operational,
+                                                                        degraded,
+                                                                        down,
+                                                                    ]
+                                                                example: "operational"
+                                                            disk_usage:
+                                                                type: object
+                                                                properties:
+                                                                    used:
+                                                                        type: number
+                                                                        description: Used storage in bytes
+                                                                        example: 10737418240
+                                                                    total:
+                                                                        type: number
+                                                                        description: Total storage in bytes
+                                                                        example: 107374182400
+                                                                    percentage:
+                                                                        type: number
+                                                                        format: float
+                                                                        example: 10.0
+                                                    external_services:
+                                                        type: object
+                                                        properties:
+                                                            email_service:
+                                                                type: object
+                                                                properties:
+                                                                    status:
+                                                                        type: string
+                                                                        enum:
+                                                                            [
+                                                                                operational,
+                                                                                degraded,
+                                                                                down,
+                                                                            ]
+                                                                        example: "operational"
+                                                                    last_check:
+                                                                        type: string
+                                                                        format: date-time
+                                                                        example: "2025-01-03T10:25:00Z"
+                                            maintenance:
+                                                type: object
+                                                properties:
+                                                    scheduled:
+                                                        type: boolean
+                                                        example: false
+                                                    next_maintenance:
+                                                        type: string
+                                                        format: date-time
+                                                        nullable: true
+                                                        example: null
+                                                    maintenance_window:
+                                                        type: string
+                                                        nullable: true
+                                                        example: null
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"

@@ -1,0 +1,542 @@
+paths:
+    /api/v1/dashboard1/overview:
+        get:
+            tags:
+                - Dashboard1
+            summary: Get Dashboard 1 Overview
+            description: Retrieve comprehensive overview data for Dashboard 1
+            security:
+                - BearerAuth: []
+            parameters:
+                - name: period
+                  in: query
+                  description: Time period for data aggregation
+                  required: false
+                  schema:
+                      type: string
+                      enum: [today, week, month, quarter, year]
+                      default: month
+                - name: filters
+                  in: query
+                  description: Additional filters (JSON encoded)
+                  required: false
+                  schema:
+                      type: string
+                      example: '{"category":"sales","region":"north"}'
+            responses:
+                "200":
+                    description: Dashboard overview retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Dashboard overview retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            summary:
+                                                type: object
+                                                properties:
+                                                    total_users:
+                                                        type: integer
+                                                        example: 1250
+                                                    active_sessions:
+                                                        type: integer
+                                                        example: 87
+                                                    revenue:
+                                                        type: number
+                                                        format: float
+                                                        example: 125430.50
+                                                    growth_rate:
+                                                        type: number
+                                                        format: float
+                                                        example: 15.5
+                                            charts:
+                                                type: object
+                                                properties:
+                                                    revenue_trend:
+                                                        type: array
+                                                        items:
+                                                            type: object
+                                                            properties:
+                                                                date:
+                                                                    type: string
+                                                                    format: date
+                                                                    example: "2025-01-01"
+                                                                value:
+                                                                    type: number
+                                                                    example: 12543.50
+                                                    user_activity:
+                                                        type: array
+                                                        items:
+                                                            type: object
+                                                            properties:
+                                                                hour:
+                                                                    type: integer
+                                                                    example: 14
+                                                                active_users:
+                                                                    type: integer
+                                                                    example: 45
+                                            recent_activities:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        id:
+                                                            type: integer
+                                                            example: 1
+                                                        type:
+                                                            type: string
+                                                            example: "user_registration"
+                                                        description:
+                                                            type: string
+                                                            example: "New user registered"
+                                                        timestamp:
+                                                            type: string
+                                                            format: date-time
+                                                            example: "2025-01-03T10:30:00Z"
+                                                        user:
+                                                            type: string
+                                                            example: "john_doe"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/v1/dashboard1/analytics:
+        get:
+            tags:
+                - Dashboard1
+            summary: Get Analytics Data
+            description: Retrieve detailed analytics data for Dashboard 1
+            security:
+                - BearerAuth: []
+            parameters:
+                - $ref: "#/components/parameters/PageParam"
+                - $ref: "#/components/parameters/LimitParam"
+                - name: metric
+                  in: query
+                  description: Specific metric to retrieve
+                  required: false
+                  schema:
+                      type: string
+                      enum: [users, revenue, sessions, conversions]
+                - name: start_date
+                  in: query
+                  description: Start date for data range
+                  required: false
+                  schema:
+                      type: string
+                      format: date
+                      example: "2025-01-01"
+                - name: end_date
+                  in: query
+                  description: End date for data range
+                  required: false
+                  schema:
+                      type: string
+                      format: date
+                      example: "2025-01-31"
+            responses:
+                "200":
+                    description: Analytics data retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Analytics data retrieved successfully"
+                                    data:
+                                        type: array
+                                        items:
+                                            type: object
+                                            properties:
+                                                date:
+                                                    type: string
+                                                    format: date
+                                                    example: "2025-01-01"
+                                                metric:
+                                                    type: string
+                                                    example: "users"
+                                                value:
+                                                    type: number
+                                                    example: 125
+                                                change_percentage:
+                                                    type: number
+                                                    format: float
+                                                    example: 12.5
+                                                previous_value:
+                                                    type: number
+                                                    example: 111
+                                    pagination:
+                                        type: object
+                                        properties:
+                                            page:
+                                                type: integer
+                                                example: 1
+                                            limit:
+                                                type: integer
+                                                example: 10
+                                            total:
+                                                type: integer
+                                                example: 100
+                                            totalPages:
+                                                type: integer
+                                                example: 10
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/v2/dashboard2/reports:
+        get:
+            tags:
+                - Dashboard2
+            summary: Get Dashboard 2 Reports
+            description: Retrieve comprehensive reports for Dashboard 2
+            security:
+                - BearerAuth: []
+            parameters:
+                - $ref: "#/components/parameters/PageParam"
+                - $ref: "#/components/parameters/LimitParam"
+                - $ref: "#/components/parameters/SortParam"
+                - name: report_type
+                  in: query
+                  description: Type of report to generate
+                  required: false
+                  schema:
+                      type: string
+                      enum: [sales, inventory, customer, financial]
+                - name: format
+                  in: query
+                  description: Report format
+                  required: false
+                  schema:
+                      type: string
+                      enum: [summary, detailed, comparative]
+                      default: summary
+            responses:
+                "200":
+                    description: Reports retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Reports retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            report_id:
+                                                type: string
+                                                example: "RPT_20250103_001"
+                                            type:
+                                                type: string
+                                                example: "sales"
+                                            format:
+                                                type: string
+                                                example: "summary"
+                                            generated_at:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:30:00Z"
+                                            data:
+                                                type: object
+                                                properties:
+                                                    summary:
+                                                        type: object
+                                                        properties:
+                                                            total_sales:
+                                                                type: number
+                                                                format: float
+                                                                example: 125430.50
+                                                            total_orders:
+                                                                type: integer
+                                                                example: 256
+                                                            average_order_value:
+                                                                type: number
+                                                                format: float
+                                                                example: 489.96
+                                                    breakdown:
+                                                        type: array
+                                                        items:
+                                                            type: object
+                                                            properties:
+                                                                category:
+                                                                    type: string
+                                                                    example: "Electronics"
+                                                                value:
+                                                                    type: number
+                                                                    format: float
+                                                                    example: 45230.75
+                                                                percentage:
+                                                                    type: number
+                                                                    format: float
+                                                                    example: 36.1
+                                            export_links:
+                                                type: object
+                                                properties:
+                                                    csv:
+                                                        type: string
+                                                        example: "/api/v2/export/reports/RPT_20250103_001.csv"
+                                                    excel:
+                                                        type: string
+                                                        example: "/api/v2/export/reports/RPT_20250103_001.xlsx"
+                                                    pdf:
+                                                        type: string
+                                                        example: "/api/v2/export/reports/RPT_20250103_001.pdf"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+        post:
+            tags:
+                - Dashboard2
+            summary: Generate Custom Report
+            description: Generate a custom report with specific parameters
+            security:
+                - BearerAuth: []
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            required:
+                                - report_type
+                                - date_range
+                            properties:
+                                report_type:
+                                    type: string
+                                    enum: [sales, inventory, customer, financial]
+                                    description: Type of report to generate
+                                    example: "sales"
+                                name:
+                                    type: string
+                                    maxLength: 100
+                                    description: Custom name for the report
+                                    example: "Monthly Sales Report - January 2025"
+                                date_range:
+                                    type: object
+                                    required:
+                                        - start_date
+                                        - end_date
+                                    properties:
+                                        start_date:
+                                            type: string
+                                            format: date
+                                            example: "2025-01-01"
+                                        end_date:
+                                            type: string
+                                            format: date
+                                            example: "2025-01-31"
+                                filters:
+                                    type: object
+                                    properties:
+                                        categories:
+                                            type: array
+                                            items:
+                                                type: string
+                                            example: ["Electronics", "Clothing"]
+                                        regions:
+                                            type: array
+                                            items:
+                                                type: string
+                                            example: ["North", "South"]
+                                        min_value:
+                                            type: number
+                                            format: float
+                                            example: 100.00
+                                        max_value:
+                                            type: number
+                                            format: float
+                                            example: 10000.00
+                                format:
+                                    type: string
+                                    enum: [summary, detailed, comparative]
+                                    default: summary
+                                    description: Report format
+                                schedule:
+                                    type: object
+                                    description: Schedule for automatic report generation
+                                    properties:
+                                        enabled:
+                                            type: boolean
+                                            default: false
+                                        frequency:
+                                            type: string
+                                            enum: [daily, weekly, monthly, quarterly]
+                                            example: "monthly"
+                                        next_run:
+                                            type: string
+                                            format: date-time
+                                            example: "2025-02-01T00:00:00Z"
+            responses:
+                "201":
+                    description: Report generation initiated successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Report generation initiated successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            report_id:
+                                                type: string
+                                                example: "RPT_20250103_002"
+                                            status:
+                                                type: string
+                                                enum:
+                                                    [
+                                                        pending,
+                                                        processing,
+                                                        completed,
+                                                        failed,
+                                                    ]
+                                                example: "pending"
+                                            estimated_completion:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:35:00Z"
+                                            progress_url:
+                                                type: string
+                                                example: "/api/v2/dashboard2/reports/RPT_20250103_002/status"
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:30:00Z"
+                "400":
+                    $ref: "#/components/responses/ValidationError"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "500":
+                    $ref: "#/components/responses/ServerError"
+
+    /api/v2/dashboard2/reports/{reportId}/status:
+        get:
+            tags:
+                - Dashboard2
+            summary: Get Report Generation Status
+            description: Check the status of a report generation process
+            security:
+                - BearerAuth: []
+            parameters:
+                - name: reportId
+                  in: path
+                  required: true
+                  description: Unique identifier of the report
+                  schema:
+                      type: string
+                      example: "RPT_20250103_002"
+            responses:
+                "200":
+                    description: Report status retrieved successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    status:
+                                        type: string
+                                        example: "success"
+                                    message:
+                                        type: string
+                                        example: "Report status retrieved successfully"
+                                    data:
+                                        type: object
+                                        properties:
+                                            report_id:
+                                                type: string
+                                                example: "RPT_20250103_002"
+                                            status:
+                                                type: string
+                                                enum:
+                                                    [
+                                                        pending,
+                                                        processing,
+                                                        completed,
+                                                        failed,
+                                                    ]
+                                                example: "processing"
+                                            progress_percentage:
+                                                type: integer
+                                                minimum: 0
+                                                maximum: 100
+                                                example: 75
+                                            started_at:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:30:00Z"
+                                            estimated_completion:
+                                                type: string
+                                                format: date-time
+                                                example: "2025-01-03T10:35:00Z"
+                                            completed_at:
+                                                type: string
+                                                format: date-time
+                                                nullable: true
+                                                example: null
+                                            error_message:
+                                                type: string
+                                                nullable: true
+                                                example: null
+                                            download_url:
+                                                type: string
+                                                nullable: true
+                                                example: null
+                                    timestamp:
+                                        type: string
+                                        format: date-time
+                                        example: "2025-01-03T10:32:00Z"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedError"
+                "403":
+                    $ref: "#/components/responses/ForbiddenError"
+                "404":
+                    $ref: "#/components/responses/NotFoundError"
+                "500":
+                    $ref: "#/components/responses/ServerError"

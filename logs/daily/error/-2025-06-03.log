@@ -1,0 +1,1002 @@
+{
+  name: 'SequelizeDatabaseError',
+  parent: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:30:14',
+      '2025-06-03 09:30:14'
+    ]
+  },
+  original: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:30:14',
+      '2025-06-03 09:30:14'
+    ]
+  },
+  sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+  parameters: [
+    'Test Produk',
+    'Makanan',
+    100000,
+    '2025-06-03 09:30:14',
+    '2025-06-03 09:30:14'
+  ],
+  level: 'error',
+  message: "Error creating Product in transaction: Field 'foto' doesn't have a default value",
+  stack: 'Error\n' +
+    '    at Query.run (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:52:25)\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async MySQLQueryInterface.insert (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n' +
+    '    at async model.save (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:2490:35)\n' +
+    '    at async Product.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:1362:12)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:104:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:131:24)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24',
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  level: 'error',
+  message: 'Transaction rolled back due to error:',
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  message: {
+    error: {
+      message: 'Failed to create product',
+      stack: 'Error: Failed to create product\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+        '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+        '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:131:24)\n' +
+        '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+        '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+        '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:17:13',
+      statusCode: 500,
+      url: '/api/v1/dashboard2/products',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'PostmanRuntime/7.44.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  level: 'error',
+  message: 'Error handling transaction: Transaction cannot be rolled back because it has been finished with state: rollback',
+  stack: 'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:91:35)\n' +
+    '    at ServerResponse.json (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\response.js:278:15)\n' +
+    '    at res.json (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:78:29)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  error: Error: Transaction cannot be rolled back because it has been finished with state: rollback
+      at Transaction.rollback (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\sequelize\lib\transaction.js:59:13)
+      at res.send (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:98:31)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  level: 'error',
+  message: 'unhandledRejection: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  stack: 'Error: Transaction cannot be rolled back because it has been finished with state: rollback\n' +
+    '    at Transaction.rollback (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js:59:13)\n' +
+    '    at res.send (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:98:31)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  rejection: true,
+  date: 'Tue Jun 03 2025 09:30:14 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 23980,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 72421376,
+      heapTotal: 29401088,
+      heapUsed: 24554448,
+      external: 2415135,
+      arrayBuffers: 41851
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 350159.296 },
+  trace: [
+    {
+      column: 13,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\transaction.js',
+      function: 'Transaction.rollback',
+      line: 59,
+      method: 'rollback',
+      native: false
+    },
+    {
+      column: 31,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'res.send',
+      line: 98,
+      method: 'send',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 09:30:14'
+}
+{
+  name: 'SequelizeDatabaseError',
+  parent: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:31:02',
+      '2025-06-03 09:31:02'
+    ]
+  },
+  original: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:31:02',
+      '2025-06-03 09:31:02'
+    ]
+  },
+  sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+  parameters: [
+    'Test Produk',
+    'Makanan',
+    100000,
+    '2025-06-03 09:31:02',
+    '2025-06-03 09:31:02'
+  ],
+  level: 'error',
+  message: "Error creating Product in transaction: Field 'foto' doesn't have a default value",
+  stack: 'Error\n' +
+    '    at Query.run (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:52:25)\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async MySQLQueryInterface.insert (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n' +
+    '    at async model.save (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:2490:35)\n' +
+    '    at async Product.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:1362:12)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:104:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:131:24)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24',
+  timestamp: '2025-06-03 09:31:02'
+}
+{
+  level: 'error',
+  message: 'Transaction rolled back due to error:',
+  timestamp: '2025-06-03 09:31:02'
+}
+{
+  message: {
+    error: {
+      message: 'Failed to create product',
+      stack: 'Error: Failed to create product\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:115:23\n' +
+        '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+        '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:131:24)\n' +
+        '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+        '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24\n' +
+        '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:17:13',
+      statusCode: 500,
+      url: '/api/v1/dashboard2/products',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'PostmanRuntime/7.44.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 09:31:02'
+}
+{
+  name: 'SequelizeDatabaseError',
+  parent: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:43:25',
+      '2025-06-03 09:43:25'
+    ]
+  },
+  original: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Test Produk',
+      'Makanan',
+      100000,
+      '2025-06-03 09:43:25',
+      '2025-06-03 09:43:25'
+    ]
+  },
+  sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+  parameters: [
+    'Test Produk',
+    'Makanan',
+    100000,
+    '2025-06-03 09:43:25',
+    '2025-06-03 09:43:25'
+  ],
+  level: 'error',
+  message: "Error creating Product in transaction: Field 'foto' doesn't have a default value",
+  stack: 'Error\n' +
+    '    at Query.run (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:52:25)\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async MySQLQueryInterface.insert (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n' +
+    '    at async model.save (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:2490:35)\n' +
+    '    at async Product.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:1362:12)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:104:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24',
+  timestamp: '2025-06-03 09:43:25'
+}
+{
+  name: 'SequelizeDatabaseError',
+  parent: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Laptop Gaming Asus ROG',
+      'Electronics',
+      15999.99,
+      '2025-06-03 09:45:27',
+      '2025-06-03 09:45:27'
+    ]
+  },
+  original: Error: Field 'foto' doesn't have a default value
+      at Packet.asError (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at Execute.execute (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\commands\command.js:29:26)
+      at Connection.handlePacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (C:\Users\ridzfhmi\Desktop\test-cursor-code\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:507:28)
+      at addChunk (node:internal/streams/readable:559:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+      at Readable.push (node:internal/streams/readable:390:5) {
+    code: 'ER_NO_DEFAULT_FOR_FIELD',
+    errno: 1364,
+    sqlState: 'HY000',
+    sqlMessage: "Field 'foto' doesn't have a default value",
+    sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+    parameters: [
+      'Laptop Gaming Asus ROG',
+      'Electronics',
+      15999.99,
+      '2025-06-03 09:45:27',
+      '2025-06-03 09:45:27'
+    ]
+  },
+  sql: 'INSERT INTO `product` (`id_product`,`name`,`category_name`,`price`,`date_added`,`date_updated`) VALUES (DEFAULT,?,?,?,?,?);',
+  parameters: [
+    'Laptop Gaming Asus ROG',
+    'Electronics',
+    15999.99,
+    '2025-06-03 09:45:27',
+    '2025-06-03 09:45:27'
+  ],
+  level: 'error',
+  message: "Error creating Product in transaction: Field 'foto' doesn't have a default value",
+  stack: 'Error\n' +
+    '    at Query.run (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:52:25)\n' +
+    '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\sequelize.js:315:28\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async MySQLQueryInterface.insert (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\dialects\\abstract\\query-interface.js:308:21)\n' +
+    '    at async model.save (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:2490:35)\n' +
+    '    at async Product.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\sequelize\\lib\\model.js:1362:12)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:104:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.create (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:94:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:242:24',
+  timestamp: '2025-06-03 09:45:27'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/dashboard1/auth/login not found',
+      stack: 'Error: Route /api/v1/dashboard1/auth/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\errorHandler.js:17:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:265:14)',
+      statusCode: 404,
+      url: '/api/v1/dashboard1/auth/login',
+      method: 'GET',
+      ip: '::1',
+      userAgent: 'PostmanRuntime/7.44.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 10:37:01'
+}
+{
+  error: TypeError: this.sendResponse is not a function
+      at login (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\AuthController.js:91:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  level: 'error',
+  message: 'unhandledRejection: this.sendResponse is not a function\n' +
+    'TypeError: this.sendResponse is not a function\n' +
+    '    at login (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js:91:18)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  stack: 'TypeError: this.sendResponse is not a function\n' +
+    '    at login (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js:91:18)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)',
+  rejection: true,
+  date: 'Tue Jun 03 2025 10:37:41 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 21316,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 71229440,
+      heapTotal: 25206784,
+      heapUsed: 23418560,
+      external: 2431608,
+      arrayBuffers: 28117
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 354206.609 },
+  trace: [
+    {
+      column: 18,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\AuthController.js',
+      function: 'login',
+      line: 91,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 10:37:41'
+}
+{
+  error: AppError: Product not found
+      at ProductService.findByPk (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:23:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:43:32
+      at async executeInTransaction (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:140:16)
+      at async ProductService.update (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:39:16)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:266:24
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Product not found\n' +
+    'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:43:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.update (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:39:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:266:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:43:32\n' +
+    '    at async executeInTransaction (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:140:16)\n' +
+    '    at async ProductService.update (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:39:16)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:266:24\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 10:42:28 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 9576,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 75390976,
+      heapTotal: 33071104,
+      heapUsed: 26836744,
+      external: 2433917,
+      arrayBuffers: 30426
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 354493.125 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'ProductService.findByPk',
+      line: 23,
+      method: 'findByPk',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: null,
+      line: 43,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: 'async executeInTransaction',
+      line: 140,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'async ProductService.update',
+      line: 39,
+      method: 'update',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 266,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 10:42:28'
+}
+{
+  message: {
+    error: {
+      message: 'Route /image/product/filename.jpg not found',
+      stack: 'Error: Route /image/product/filename.jpg not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\errorHandler.js:17:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at SendStream.error (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\serve-static\\index.js:121:7)\n' +
+        '    at SendStream.emit (node:events:507:28)\n' +
+        '    at SendStream.error (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\send\\index.js:270:17)\n' +
+        '    at SendStream.onStatError (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\send\\index.js:417:12)',
+      statusCode: 404,
+      url: '/image/product/filename.jpg',
+      method: 'GET',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 11:36:04'
+}
+{
+  message: {
+    error: {
+      message: 'Route /favicon.ico not found',
+      stack: 'Error: Route /favicon.ico not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\errorHandler.js:17:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at urlencodedParser (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\body-parser\\lib\\types\\urlencoded.js:94:7)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\node_modules\\express\\lib\\router\\index.js:286:9',
+      statusCode: 404,
+      url: '/favicon.ico',
+      method: 'GET',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 11:36:05'
+}
+{
+  error: AppError: Product not found
+      at ProductService.findByPk (C:\Users\ridzfhmi\Desktop\test-cursor-code\src\services\ProductService.js:23:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\controllers\ProductController.js:325:29
+      at async C:\Users\ridzfhmi\Desktop\test-cursor-code\src\middlewares\transactionMiddleware.js:12:20 {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  level: 'error',
+  message: 'unhandledRejection: Product not found\n' +
+    'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:325:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js:325:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js:12:20',
+  rejection: true,
+  date: 'Tue Jun 03 2025 13:41:11 GMT+0700 (Indochina Time)',
+  process: {
+    pid: 11672,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code',
+    execPath: 'C:\\nvm4w\\nodejs\\node.exe',
+    version: 'v24.0.0',
+    argv: [
+      'C:\\nvm4w\\nodejs\\node.exe',
+      'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 98160640,
+      heapTotal: 57917440,
+      heapUsed: 36643496,
+      external: 2424526,
+      arrayBuffers: 21035
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 365216.812 },
+  trace: [
+    {
+      column: 23,
+      file: 'C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ProductService.js',
+      function: 'ProductService.findByPk',
+      line: 23,
+      method: 'findByPk',
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/process/task_queues',
+      function: 'process.processTicksAndRejections',
+      line: 105,
+      method: 'processTicksAndRejections',
+      native: false
+    },
+    {
+      column: 29,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ProductController.js',
+      function: null,
+      line: 325,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'async C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\middlewares\\transactionMiddleware.js',
+      function: null,
+      line: 12,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-06-03 13:41:11'
+}
+{
+  level: 'error',
+  message: "Error exporting users: Excel export failed: Cannot read properties of undefined (reading 'findAll')",
+  stack: "Error: Excel export failed: Cannot read properties of undefined (reading 'findAll')\n" +
+    '    at ExcelExporter.exportToResponse (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\utils\\excelExporter.js:105:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ExcelService.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ExcelService.js:60:13)\n' +
+    '    at async ExportController.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ExportController.js:21:13)',
+  timestamp: '2025-06-03 14:08:09'
+}
+{
+  level: 'error',
+  message: "Error in exportUsers controller: Excel export failed: Cannot read properties of undefined (reading 'findAll')",
+  stack: "Error: Excel export failed: Cannot read properties of undefined (reading 'findAll')\n" +
+    '    at ExcelExporter.exportToResponse (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\utils\\excelExporter.js:105:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ExcelService.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ExcelService.js:60:13)\n' +
+    '    at async ExportController.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ExportController.js:21:13)',
+  timestamp: '2025-06-03 14:08:09'
+}
+{
+  level: 'error',
+  message: "Error exporting users: Excel export failed: Cannot read properties of undefined (reading 'findAll')",
+  stack: "Error: Excel export failed: Cannot read properties of undefined (reading 'findAll')\n" +
+    '    at ExcelExporter.exportToResponse (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\utils\\excelExporter.js:105:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ExcelService.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ExcelService.js:60:13)\n' +
+    '    at async ExportController.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ExportController.js:21:13)',
+  timestamp: '2025-06-03 14:09:20'
+}
+{
+  level: 'error',
+  message: "Error in exportUsers controller: Excel export failed: Cannot read properties of undefined (reading 'findAll')",
+  stack: "Error: Excel export failed: Cannot read properties of undefined (reading 'findAll')\n" +
+    '    at ExcelExporter.exportToResponse (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\utils\\excelExporter.js:105:19)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async ExcelService.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\services\\ExcelService.js:60:13)\n' +
+    '    at async ExportController.exportUsers (C:\\Users\\ridzfhmi\\Desktop\\test-cursor-code\\src\\controllers\\ExportController.js:21:13)',
+  timestamp: '2025-06-03 14:09:20'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/auth/login not found',
+      stack: 'Error: Route /api/v1/auth/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:17:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)',
+      statusCode: 404,
+      url: '/api/v1/auth/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 14:45:06'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/auth/login not found',
+      stack: 'Error: Route /api/v1/auth/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:17:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)',
+      statusCode: 404,
+      url: '/api/v1/auth/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 14:45:09'
+}
+{
+  statusCode: 404,
+  status: 'fail',
+  isOperational: true,
+  level: 'error',
+  message: 'Error in delete product: Product not found',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\controllers\\ProductController.js:352:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\transactionMiddleware.js:13:24',
+  timestamp: '2025-06-03 15:02:09'
+}
+{
+  statusCode: 404,
+  status: 'fail',
+  isOperational: true,
+  level: 'error',
+  message: 'Error in delete product: Product not found',
+  stack: 'Error: Product not found\n' +
+    '    at ProductService.findByPk (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\services\\ProductService.js:23:23)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\controllers\\ProductController.js:352:29\n' +
+    '    at async C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\transactionMiddleware.js:13:24',
+  timestamp: '2025-06-03 15:07:25'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/dashboard1/login not found',
+      stack: 'Error: Route /api/v1/dashboard1/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:64:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)',
+      statusCode: 404,
+      url: '/api/v1/dashboard1/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0',
+      isOperational: true,
+      timestamp: '2025-06-03T08:22:53.484Z'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 15:22:53'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/dashboard1/login not found',
+      stack: 'Error: Route /api/v1/dashboard1/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:64:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)',
+      statusCode: 404,
+      url: '/api/v1/dashboard1/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0',
+      isOperational: true,
+      timestamp: '2025-06-03T08:28:04.268Z'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 15:28:04'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/dashboard1/login not found',
+      stack: 'Error: Route /api/v1/dashboard1/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:64:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)',
+      statusCode: 404,
+      url: '/api/v1/dashboard1/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0',
+      isOperational: true,
+      timestamp: '2025-06-03T08:29:01.506Z'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 15:29:01'
+}
+{
+  message: {
+    error: {
+      message: 'Route /api/v1/dashboard1/login not found',
+      stack: 'Error: Route /api/v1/dashboard1/login not found\n' +
+        '    at notFoundHandler (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\src\\middlewares\\errorHandler.js:64:19)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:286:9\n' +
+        '    at router.process_params (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:646:15\n' +
+        '    at next (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:265:14)\n' +
+        '    at router.handle (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:175:3)\n' +
+        '    at router (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:47:12)\n' +
+        '    at Layer.handle [as handle_request] (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+        '    at trim_prefix (C:\\Users\\ridzfhmi\\Desktop\\api.siplah.dashboard\\node_modules\\express\\lib\\router\\index.js:328:13)',
+      statusCode: 404,
+      url: '/api/v1/dashboard1/login',
+      method: 'POST',
+      ip: '::1',
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0',
+      isOperational: true,
+      timestamp: '2025-06-03T08:29:12.963Z'
+    }
+  },
+  level: 'error',
+  timestamp: '2025-06-03 15:29:12'
+}
