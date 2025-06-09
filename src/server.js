@@ -132,6 +132,19 @@ const startServer = async () => {
         await connectDatabase();
         logger.info("Database connection successful");
 
+        // Initialize Redis
+        try {
+            const redisService = require("./services/RedisService");
+            await redisService.initialize();
+            logger.info("Redis service initialized successfully");
+        } catch (redisError) {
+            logger.warn(
+                "Redis initialization failed, continuing without cache:",
+                redisError.message
+            );
+            // Continue without Redis - the app should still work
+        }
+
         app.listen(PORT, () => {
             logger.info(`Server is running on port ${PORT}`);
             logger.info(`Environment: ${process.env.NODE_ENV}`);

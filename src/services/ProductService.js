@@ -4,6 +4,7 @@ const { AppError } = require("../middlewares/errorHandler");
 const logger = require("../utils/logger");
 const { Op } = require("sequelize");
 const { executeInTransaction } = require("../middlewares/transactionMiddleware");
+const redisService = require("./RedisService");
 
 class ProductService extends BaseService {
     constructor() {
@@ -53,6 +54,9 @@ class ProductService extends BaseService {
                     ...options,
                 });
 
+                // Invalidate caches after successful update
+                await this.invalidateProductCaches();
+
                 logger.info(`Product updated with ID: ${id} in transaction`);
                 return updatedRecord;
             } catch (error) {
@@ -76,6 +80,9 @@ class ProductService extends BaseService {
                     transaction,
                     ...options,
                 });
+
+                // Invalidate caches after successful deletion
+                await this.invalidateProductCaches();
 
                 logger.info(`Product deleted with ID: ${id} in transaction`);
                 return { message: "Product deleted successfully" };
@@ -125,6 +132,9 @@ class ProductService extends BaseService {
                     transaction,
                     ...options,
                 });
+
+                // Invalidate caches after successful creation
+                await this.invalidateProductCaches();
 
                 logger.info(
                     `Product created with ID: ${record.id_product} in transaction`
@@ -343,10 +353,19 @@ class ProductService extends BaseService {
         }
     }
 
-    // Get all categories
+    // Get all categories with caching
     async getCategories() {
         try {
             logger.info("Getting all product categories");
+
+            // Try to get from cache first
+            const cacheKey = redisService.getCacheKey("products", "categories");
+            const cachedCategories = await redisService.get(cacheKey);
+
+            if (cachedCategories) {
+                logger.info("Categories retrieved from cache");
+                return cachedCategories;
+            }
 
             const categories = await this.model.findAll({
                 attributes: ["category_name"],
@@ -355,7 +374,11 @@ class ProductService extends BaseService {
             });
 
             const categoryList = categories.map((cat) => cat.category_name);
-            logger.info(`Found ${categoryList.length} categories`);
+
+            // Cache for 1 hour (3600 seconds)
+            await redisService.set(cacheKey, categoryList, 3600);
+
+            logger.info(`Found ${categoryList.length} categories and cached them`);
             return categoryList;
         } catch (error) {
             logger.error("Error getting categories:", error);
@@ -363,10 +386,19 @@ class ProductService extends BaseService {
         }
     }
 
-    // Get product statistics
+    // Get product statistics with caching
     async getStatistics() {
         try {
             logger.info("Getting product statistics");
+
+            // Try to get from cache first
+            const cacheKey = redisService.getCacheKey("products", "statistics");
+            const cachedStats = await redisService.get(cacheKey);
+
+            if (cachedStats) {
+                logger.info("Statistics retrieved from cache");
+                return cachedStats;
+            }
 
             const [totalProducts, totalCategories, avgPrice, minPrice, maxPrice] =
                 await Promise.all([
@@ -388,11 +420,29 @@ class ProductService extends BaseService {
                 maxPrice: parseFloat(maxPrice || 0).toFixed(2),
             };
 
-            logger.info("Product statistics retrieved successfully");
+            // Cache for 30 minutes (1800 seconds)
+            await redisService.set(cacheKey, stats, 1800);
+
+            logger.info("Product statistics retrieved successfully and cached");
             return stats;
         } catch (error) {
             logger.error("Error getting product statistics:", error);
             throw new AppError("Failed to retrieve product statistics", 500);
+        }
+    }
+
+    // Helper method to invalidate related caches
+    async invalidateProductCaches() {
+        try {
+            // Invalidate categories and statistics cache
+            await Promise.all([
+                redisService.del(redisService.getCacheKey("products", "categories")),
+                redisService.del(redisService.getCacheKey("products", "statistics")),
+                redisService.delPattern("products:*"), // Clear all product-related cache
+            ]);
+            logger.info("Product caches invalidated successfully");
+        } catch (error) {
+            logger.error("Error invalidating product caches:", error);
         }
     }
 }
