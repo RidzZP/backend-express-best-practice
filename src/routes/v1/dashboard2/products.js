@@ -6,10 +6,6 @@ const {
     optionalAuthMiddleware,
 } = require("../../../middlewares/authMiddleware");
 const { productImageUpload } = require("../../../middlewares/uploadMiddleware");
-const {
-    productCacheMiddleware,
-    productCacheInvalidation,
-} = require("../../../middlewares/cacheMiddleware");
 
 const router = express.Router();
 const productController = new ProductController();
@@ -17,52 +13,18 @@ const productController = new ProductController();
 // Apply transaction middleware to all routes (will skip GET requests automatically)
 router.use(transactionManager);
 
-// Apply cache invalidation middleware to all routes
-router.use(productCacheInvalidation());
-
-// Read-only routes (no authentication required, but add user info if available) with caching
-router.get(
-    "/",
-    optionalAuthMiddleware,
-    productCacheMiddleware(1800),
-    productController.getAll
-); // Cache for 30 minutes
-router.get(
-    "/statistics",
-    optionalAuthMiddleware,
-    productCacheMiddleware(1800),
-    productController.getStatistics
-); // Cache for 30 minutes
-router.get(
-    "/categories",
-    optionalAuthMiddleware,
-    productCacheMiddleware(3600),
-    productController.getCategories
-); // Cache for 1 hour
-router.get(
-    "/search/:term",
-    optionalAuthMiddleware,
-    productCacheMiddleware(600),
-    productController.search
-); // Cache for 10 minutes
+// Read-only routes (no authentication required, but add user info if available)
+router.get("/", optionalAuthMiddleware, productController.getAll);
+router.get("/statistics", optionalAuthMiddleware, productController.getStatistics);
+router.get("/categories", optionalAuthMiddleware, productController.getCategories);
+router.get("/search/:term", optionalAuthMiddleware, productController.search);
 router.get(
     "/category/:category",
     optionalAuthMiddleware,
-    productCacheMiddleware(900), // Cache for 15 minutes
     productController.getByCategory
 );
-router.get(
-    "/price-range",
-    optionalAuthMiddleware,
-    productCacheMiddleware(900),
-    productController.getByPriceRange
-); // Cache for 15 minutes
-router.get(
-    "/:id",
-    optionalAuthMiddleware,
-    productCacheMiddleware(1800),
-    productController.getById
-); // Cache for 30 minutes
+router.get("/price-range", optionalAuthMiddleware, productController.getByPriceRange);
+router.get("/:id", optionalAuthMiddleware, productController.getById);
 
 // Transactional routes (create, update, delete operations) - Authentication required
 router.post("/", productImageUpload.single, authMiddleware, productController.create);

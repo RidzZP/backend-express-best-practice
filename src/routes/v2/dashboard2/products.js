@@ -2,10 +2,6 @@ const express = require("express");
 const ProductController = require("../../../controllers/ProductController");
 const { transactionManager } = require("../../../middlewares/transactionMiddleware");
 const { productImageUpload } = require("../../../middlewares/uploadMiddleware");
-const {
-    productCacheMiddleware,
-    productCacheInvalidation,
-} = require("../../../middlewares/cacheMiddleware");
 
 const router = express.Router();
 const productController = new ProductController();
